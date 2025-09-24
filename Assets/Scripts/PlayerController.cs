@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public float speed = 5;
     public float baseSpeed = 5;
     public int health = 100;
-    private Vector3 velocity;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
