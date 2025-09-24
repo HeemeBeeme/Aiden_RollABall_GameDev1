@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     private bool enemyCanDamage = true;
     private int score = 0;
     private float TimePassed = 0;
-    public float speed = 0;
+    public float speed = 5;
+    public float baseSpeed = 5;
     public int health = 100;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
@@ -22,7 +23,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         SetCountText();
         SetHealthText();
-        winTextObject.SetActive(false);
     }
 
     private void Update()
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
             if (TimePassed >= 1f)
             {
                 TimePassed = 0f;
+                speed = baseSpeed;
                 enemyCanDamage = true;
             }
         }
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour
                 enemyCanDamage = false;
                 health -= 25;
                 SetHealthText();
+                speed *= 1.5f;
             }
 
             if (health <= 0)
