@@ -15,8 +15,9 @@ public class PlayerController : MonoBehaviour
     public float baseSpeed = 5;
     public int health = 100;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
     public TextMeshProUGUI healthText;
+    public TextMeshProUGUI collectionText;
+    public GameObject winTextObject;
 
     void Start()
     {
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Score: " + score.ToString();
+        collectionText.text = $"{score}/10";
         if (score >= 10)
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
