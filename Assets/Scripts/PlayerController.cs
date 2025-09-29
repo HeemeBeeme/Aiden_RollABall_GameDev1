@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     private bool enemyCanDamage = true;
+    public bool IsPaused = false;
     private int score = 0;
     private float TimePassed = 0;
     public float speed = 5;
@@ -30,7 +32,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(enemyCanDamage == false)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
+
+        if (enemyCanDamage == false)
         {
             TimePassed += Time.deltaTime;
 
@@ -106,6 +113,20 @@ public class PlayerController : MonoBehaviour
                 RestartButton.SetActive(true);
             }
 
+        }
+    }
+
+    public void PauseGame()
+    {
+        if(IsPaused == false)
+        {
+            Time.timeScale = 0;
+            IsPaused = true;
+        }
+        else if(IsPaused == true)
+        {
+            Time.timeScale = 1;
+            IsPaused = false;
         }
     }
 
