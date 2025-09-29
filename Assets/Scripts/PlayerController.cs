@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Score: " + score.ToString();
-        collectionText.text = $"{score}/10";
+        collectionText.text = $"Cubes: {score}/10";
         if (score >= 10)
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
