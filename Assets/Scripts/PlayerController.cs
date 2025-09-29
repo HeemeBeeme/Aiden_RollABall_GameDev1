@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
+    public GameObject RestartButton;
     public GameObject winTextObject;
 
     void Start()
@@ -72,6 +74,8 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             winTextObject.SetActive(true);
+            RestartButton.SetActive(true);
+
         }
     }
 
@@ -99,6 +103,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
                 winTextObject.gameObject.SetActive(true);
                 winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+                RestartButton.SetActive(true);
             }
 
         }
