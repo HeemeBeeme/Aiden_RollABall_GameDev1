@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public GameObject winTextObject;
     public GameObject pauseTextObject;
     public GameObject unpauseTextObject;
+    public GameObject unpauseBackgroundObject;
 
     void Start()
     {
@@ -123,6 +124,7 @@ public class PlayerController : MonoBehaviour
         if(IsPaused == false)
         {
             Time.timeScale = 0;
+            unpauseBackgroundObject.SetActive(true);
             unpauseTextObject.SetActive(true);
             pauseTextObject.SetActive(false);
             IsPaused = true;
@@ -130,6 +132,7 @@ public class PlayerController : MonoBehaviour
         else if(IsPaused == true)
         {
             Time.timeScale = 1;
+            unpauseBackgroundObject.SetActive(false);
             unpauseTextObject.SetActive(false);
             pauseTextObject.SetActive(true);
             IsPaused = false;
