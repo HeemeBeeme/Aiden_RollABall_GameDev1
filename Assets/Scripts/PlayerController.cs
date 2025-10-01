@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
+    public Vector3 PlayerSpawnPoint;
     public GameObject RestartMenu;
     public GameObject winTextObject;
     public GameObject pauseTextObject;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        PlayerSpawnPoint = gameObject.transform.position;
         SetCountText();
         SetHealthText();
     }
@@ -67,7 +69,13 @@ public class PlayerController : MonoBehaviour
             score++;
             SetCountText();
         }
+
+        if (other.gameObject.CompareTag("KillZone"))
+        {
+            gameObject.transform.position = PlayerSpawnPoint;
+        }
     }
+
     void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
