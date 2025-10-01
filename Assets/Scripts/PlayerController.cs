@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI collectionText;
     public GameObject RestartButton;
     public GameObject winTextObject;
+    public GameObject pauseTextObject;
+    public GameObject unpauseTextObject;
 
     void Start()
     {
@@ -121,11 +123,15 @@ public class PlayerController : MonoBehaviour
         if(IsPaused == false)
         {
             Time.timeScale = 0;
+            unpauseTextObject.SetActive(true);
+            pauseTextObject.SetActive(false);
             IsPaused = true;
         }
         else if(IsPaused == true)
         {
             Time.timeScale = 1;
+            unpauseTextObject.SetActive(false);
+            pauseTextObject.SetActive(true);
             IsPaused = false;
         }
     }
