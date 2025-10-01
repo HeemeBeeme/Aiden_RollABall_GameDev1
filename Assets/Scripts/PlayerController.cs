@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
-    public GameObject RestartButton;
+    public GameObject RestartMenu;
     public GameObject winTextObject;
     public GameObject pauseTextObject;
     public GameObject unpauseTextObject;
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             winTextObject.SetActive(true);
-            RestartButton.SetActive(true);
+            RestartMenu.SetActive(true);
 
         }
     }
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
                 winTextObject.gameObject.SetActive(true);
                 winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
-                RestartButton.SetActive(true);
+                RestartMenu.SetActive(true);
             }
 
         }

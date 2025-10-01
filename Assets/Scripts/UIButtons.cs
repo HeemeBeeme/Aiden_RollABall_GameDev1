@@ -13,6 +13,12 @@ public class UIButtons : MonoBehaviour
         SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Single);
     }
 
+    public void ReturnToMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+    }
+
     public void Quit()
     {
         Application.Quit();
