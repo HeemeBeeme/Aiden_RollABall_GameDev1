@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class UIButtons : MonoBehaviour
 {
+
     public void Play()
     {
         SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Single);
