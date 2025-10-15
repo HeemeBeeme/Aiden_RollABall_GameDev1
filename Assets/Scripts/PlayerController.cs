@@ -11,13 +11,16 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     private bool enemyCanDamage = true;
+    private bool playerCanMine = true;
     public bool IsPaused = false;
     private int score = 0;
     private float TimePassed = 0;
+    private float MineTime = 0;
     public float speed = 5;
     public float baseSpeed = 5;
     public int health = 100;
-    public int PickUpNum = 999;
+    private int PickUpNum = 0;
+    private int rockMineTime = 0;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
@@ -55,6 +58,17 @@ public class PlayerController : MonoBehaviour
                 TimePassed = 0f;
                 speed = baseSpeed;
                 enemyCanDamage = true;
+            }
+        }
+
+        if (playerCanMine == false)
+        {
+            MineTime += Time.deltaTime;
+
+            if (MineTime >= 1f)
+            {
+                MineTime = 0f;
+                playerCanMine = true;
             }
         }
     }
@@ -110,7 +124,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (enemyCanDamage == true)
+            if (enemyCanDamage)
             {
                 enemyCanDamage = false;
                 health -= 25;
@@ -129,6 +143,22 @@ public class PlayerController : MonoBehaviour
                 RestartMenu.SetActive(true);
             }
 
+        }
+
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+            if (playerCanMine)
+            {
+                playerCanMine = false;
+                //rock shake and some particles
+                rockMineTime += 1;
+            }
+
+            if(rockMineTime == 5)
+            {
+                collision.gameObject.SetActive(false);
+            }
+            
         }
     }
 
