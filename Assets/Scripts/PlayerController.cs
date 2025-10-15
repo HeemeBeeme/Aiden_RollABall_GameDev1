@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public GameObject pauseTextObject;
     public GameObject unpauseTextObject;
     public GameObject unpauseBackgroundObject;
+    public ParticleSystem PlayerParticles;
+
 
     void Start()
     {
@@ -110,6 +112,7 @@ public class PlayerController : MonoBehaviour
             {
                 enemyCanDamage = false;
                 health -= 25;
+                PlayerParticles.Play();
                 SetHealthText();
                 speed *= 1.5f;
             }
