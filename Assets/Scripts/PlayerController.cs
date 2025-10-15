@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 5;
     public float baseSpeed = 5;
     public int health = 100;
+    public int PickUpNum = 999;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         PlayerSpawnPoint = gameObject.transform.position;
+        PickUpNum = GameObject.FindGameObjectsWithTag("PickUp").Length;
         SetCountText();
         SetHealthText();
     }
@@ -88,9 +90,9 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Score: " + score.ToString();
-        collectionText.text = $"Cubes: {score}/10";
-        if (score >= 10)
+        countText.text = $"Score: {score}";
+        collectionText.text = $"Cubes: {score}/{PickUpNum}";
+        if (score >= PickUpNum)
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
             winTextObject.SetActive(true);
