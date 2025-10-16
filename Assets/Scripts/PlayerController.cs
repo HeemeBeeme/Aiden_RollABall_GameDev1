@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public int health = 100;
     private int PickUpNum = 0;
     public int rockMineTime = 0;
+    public int TimeToMine = 3;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
@@ -85,6 +86,12 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score++;
+
+            if(health + 10 <= 100)
+            {
+                health += 10;
+                SetHealthText();
+            }
             SetCountText();
         }
 
@@ -154,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 rockMineTime += 1;
             }
 
-            if(rockMineTime == 5)
+            if(rockMineTime == TimeToMine)
             {
                 collision.gameObject.SetActive(false);
                 rockMineTime = 0;
