@@ -87,12 +87,17 @@ public class PlayerController : MonoBehaviour
             other.gameObject.SetActive(false);
             score++;
 
-            if(health + 10 <= 100)
+            if(health < 100)
             {
                 health += 10;
+
+                if(health > 100)
+                {
+                    health = 100;
+                }
                 SetHealthText();
             }
-            SetCountText();
+                SetCountText();
         }
 
         if (other.gameObject.CompareTag("KillZone"))
