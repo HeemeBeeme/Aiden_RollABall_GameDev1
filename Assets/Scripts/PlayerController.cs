@@ -21,10 +21,11 @@ public class PlayerController : MonoBehaviour
     public int health = 100;
     private int PickUpNum = 0;
     public int rockMineTime = 0;
-    public int TimeToMine = 3;
+    public int timeToMine = 3;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
+    public TextMeshProUGUI mineTimeText;
     public Vector3 PlayerSpawnPoint;
     public GameObject RestartMenu;
     public GameObject winTextObject;
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        mineTimeText.text = "Mining Time: " + rockMineTime.ToString() + "s / 3s";
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseGame();
@@ -166,7 +169,7 @@ public class PlayerController : MonoBehaviour
                 rockMineTime += 1;
             }
 
-            if(rockMineTime == TimeToMine)
+            if(rockMineTime == timeToMine)
             {
                 collision.gameObject.SetActive(false);
                 rockMineTime = 0;
