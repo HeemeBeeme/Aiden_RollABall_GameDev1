@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public float baseSpeed = 5;
     public int health = 100;
     private int PickUpNum = 0;
-    private int rockMineTime = 0;
+    public int rockMineTime = 0;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = $"Score: {score}";
-        collectionText.text = $"Cubes: {score}/{PickUpNum}";
+        collectionText.text = $"Gems: {score}/{PickUpNum}";
         if (score >= PickUpNum)
         {
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
@@ -157,8 +157,17 @@ public class PlayerController : MonoBehaviour
             if(rockMineTime == 5)
             {
                 collision.gameObject.SetActive(false);
+                rockMineTime = 0;
             }
             
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Rock"))
+        {
+            rockMineTime = 0;
         }
     }
 
