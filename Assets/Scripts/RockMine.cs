@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class RockMine : MonoBehaviour
@@ -10,9 +11,11 @@ public class RockMine : MonoBehaviour
 
     public TextMeshProUGUI mineTimeText;
 
+    Vector3 RockPosition;
+
     void Start()
     {
-        
+        RockPosition = gameObject.transform.position;
     }
 
     void Update()
@@ -40,6 +43,17 @@ public class RockMine : MonoBehaviour
                 playerCanMine = false;
                 //rock shake and some particles
                 rockMineTime += 1;
+
+                float ShakeTimer = 0;
+                float ShakeDuration = 1;
+
+                while(ShakeTimer < ShakeDuration)
+                {
+                    gameObject.transform.position = new Vector3((Mathf.Sin(2 * 5)), 1, (Mathf.Sin(2 * 5)));
+                    ShakeTimer += Time.deltaTime;
+                }
+
+                gameObject.transform.position = RockPosition;
             }
 
             mineTimeText.text = rockMineTime.ToString() + "s / 3s";
