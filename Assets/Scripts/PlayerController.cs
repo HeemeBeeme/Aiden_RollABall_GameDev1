@@ -11,21 +11,16 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     private bool enemyCanDamage = true;
-    private bool playerCanMine = true;
     public bool IsPaused = false;
     private int score = 0;
     private float TimePassed = 0;
-    private float MineTime = 0;
     public float speed = 5;
     public float baseSpeed = 5;
     public int health = 100;
     private int PickUpNum = 0;
-    public int rockMineTime = 0;
-    public int timeToMine = 3;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI collectionText;
-    public TextMeshProUGUI mineTimeText;
     public Vector3 PlayerSpawnPoint;
     public GameObject RestartMenu;
     public GameObject winTextObject;
@@ -46,7 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        mineTimeText.text = "Mining Time: " + rockMineTime.ToString() + "s / 3s";
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -62,17 +56,6 @@ public class PlayerController : MonoBehaviour
                 TimePassed = 0f;
                 speed = baseSpeed;
                 enemyCanDamage = true;
-            }
-        }
-
-        if (playerCanMine == false)
-        {
-            MineTime += Time.deltaTime;
-
-            if (MineTime >= 1f)
-            {
-                MineTime = 0f;
-                playerCanMine = true;
             }
         }
     }
@@ -158,31 +141,6 @@ public class PlayerController : MonoBehaviour
                 RestartMenu.SetActive(true);
             }
 
-        }
-
-        if (collision.gameObject.CompareTag("Rock"))
-        {
-            if (playerCanMine)
-            {
-                playerCanMine = false;
-                //rock shake and some particles
-                rockMineTime += 1;
-            }
-
-            if(rockMineTime == timeToMine)
-            {
-                collision.gameObject.SetActive(false);
-                rockMineTime = 0;
-            }
-            
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Rock"))
-        {
-            rockMineTime = 0;
         }
     }
 
