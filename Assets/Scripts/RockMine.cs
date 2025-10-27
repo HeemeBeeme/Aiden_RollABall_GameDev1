@@ -9,17 +9,24 @@ public class RockMine : MonoBehaviour
     public int rockMineTime = 0;
     public int timeToMine = 3;
 
+    public float shakeSpeed = 2f;
+    public float shakeAmount = 2f;
+
     public TextMeshProUGUI mineTimeText;
+    private Camera Camera;
 
     Vector3 RockPosition;
 
     void Start()
     {
+        Camera = FindAnyObjectByType<Camera>();
         RockPosition = gameObject.transform.position;
     }
 
     void Update()
     {
+        mineTimeText.transform.LookAt(Camera.transform, Vector3.forward);
+
 
         if (playerCanMine == false)
         {
@@ -43,18 +50,9 @@ public class RockMine : MonoBehaviour
                 playerCanMine = false;
                 //rock shake and some particles
                 rockMineTime += 1;
-
-                float ShakeTimer = 0;
-                float ShakeDuration = 1;
-
-                while(ShakeTimer < ShakeDuration)
-                {
-                    gameObject.transform.position = new Vector3((Mathf.Sin(2 * 5)), 1, (Mathf.Sin(2 * 5)));
-                    ShakeTimer += Time.deltaTime;
-                }
-
-                gameObject.transform.position = RockPosition;
             }
+
+            gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);
 
             mineTimeText.text = rockMineTime.ToString() + "s / 3s";
 
@@ -64,6 +62,7 @@ public class RockMine : MonoBehaviour
                 rockMineTime = 0;
             }
 
+            gameObject.transform.position = RockPosition;
         }
     }
 
