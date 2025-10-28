@@ -14,6 +14,7 @@ public class RockMine : MonoBehaviour
 
     public TextMeshProUGUI mineTimeText;
     private Camera Camera;
+    public ParticleSystem RockParticleSystem;
 
     Vector3 RockPosition;
 
@@ -48,11 +49,12 @@ public class RockMine : MonoBehaviour
             if (playerCanMine)
             {
                 playerCanMine = false;
-                //rock shake and some particles
+                RockParticleSystem.Play();
+                //shake
                 rockMineTime += 1;
             }
 
-            gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);
+            /*gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);*/
 
             mineTimeText.text = rockMineTime.ToString() + "s / 3s";
 
