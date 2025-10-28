@@ -50,11 +50,10 @@ public class RockMine : MonoBehaviour
             {
                 playerCanMine = false;
                 RockParticleSystem.Play();
-                //shake
+            /*gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);*/
                 rockMineTime += 1;
             }
 
-            /*gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);*/
 
             mineTimeText.text = rockMineTime.ToString() + "s / 3s";
 
