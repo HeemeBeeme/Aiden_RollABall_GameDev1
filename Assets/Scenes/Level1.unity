@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -32.2
@@ -177,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 2141235595}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4639
+      value: 4771
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -488,7 +492,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -650,13 +654,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203844586}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38302222, y: 0.38302222, z: -0.17860618, w: 0.82139385}
+  m_LocalRotation: {x: 0.13062344, y: 0.82150596, z: -0.20863585, w: 0.5143313}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: 50, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.5, y: 115.9, z: 0}
 --- !u!1 &212873392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,9 +1105,9 @@ MonoBehaviour:
   speed: 5
   baseSpeed: 5
   health: 100
-  countText: {fileID: 2088347216}
+  moneyText: {fileID: 2088347216}
   healthText: {fileID: 1750827652}
-  collectionText: {fileID: 871789521}
+  gemText: {fileID: 871789521}
   PlayerSpawnPoint: {x: 0, y: 0, z: 0}
   RestartMenu: {fileID: 618818027}
   winTextObject: {fileID: 2093832170}
@@ -1532,7 +1536,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -1687,6 +1691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.01
@@ -1733,7 +1741,7 @@ PrefabInstance:
       objectReference: {fileID: 1892625239}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -1803,6 +1811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.32972
@@ -1849,7 +1861,7 @@ PrefabInstance:
       objectReference: {fileID: 121511521}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -1960,6 +1972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71
@@ -2006,7 +2022,7 @@ PrefabInstance:
       objectReference: {fileID: 574453545}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -2069,7 +2085,7 @@ GameObject:
   - component: {fileID: 871789522}
   - component: {fileID: 871789521}
   m_Layer: 5
-  m_Name: CollectionText
+  m_Name: GemText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2114,7 +2130,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/10
+  m_text: 'Gems: 100'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3043,6 +3059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52
@@ -3089,7 +3109,7 @@ PrefabInstance:
       objectReference: {fileID: 1901718380}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -3411,7 +3431,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -3576,7 +3596,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -4027,6 +4047,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -34.5
@@ -4073,7 +4097,7 @@ PrefabInstance:
       objectReference: {fileID: 1360775502}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -4523,7 +4547,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -9602,6 +9626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.1
@@ -9648,7 +9676,7 @@ PrefabInstance:
       objectReference: {fileID: 1795608290}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -9826,7 +9854,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -9991,7 +10019,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -10146,6 +10174,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.4
@@ -10192,7 +10224,7 @@ PrefabInstance:
       objectReference: {fileID: 2140261458}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -10370,7 +10402,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -10497,6 +10529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.2
@@ -10543,7 +10579,7 @@ PrefabInstance:
       objectReference: {fileID: 1324592297}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4636
+      value: 4768
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh
@@ -10644,7 +10680,7 @@ GameObject:
   - component: {fileID: 2088347217}
   - component: {fileID: 2088347216}
   m_Layer: 5
-  m_Name: ScoreText
+  m_Name: MoneyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10689,7 +10725,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 0'
+  m_text: $ 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11062,7 +11098,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -11227,7 +11263,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1.1860238
-  'm_MeshMetrics[1]': 1
+  'm_MeshMetrics[1]': 24.049591
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -11245,6 +11281,10 @@ PrefabInstance:
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342315777362071942, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11292,7 +11332,7 @@ PrefabInstance:
       objectReference: {fileID: 1983689096}
     - target: {fileID: 6863570316494628688, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_VersionIndex
-      value: 4639
+      value: 4771
       objectReference: {fileID: 0}
     - target: {fileID: 8197768440415631593, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Mesh

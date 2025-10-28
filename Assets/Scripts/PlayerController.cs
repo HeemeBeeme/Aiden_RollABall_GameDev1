@@ -4,6 +4,8 @@ using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using Unity.Mathematics;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,15 +14,15 @@ public class PlayerController : MonoBehaviour
     private float movementY;
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
-    private int score = 0;
+    private int gemAmount = 0;
     private float TimePassed = 0;
     public float speed = 5;
     public float baseSpeed = 5;
     public int health = 100;
-    private int PickUpNum = 0;
-    public TextMeshProUGUI countText;
+    private int money = 0;
+    public TextMeshProUGUI moneyText;
     public TextMeshProUGUI healthText;
-    public TextMeshProUGUI collectionText;
+    public TextMeshProUGUI gemText;
     public Vector3 PlayerSpawnPoint;
     public GameObject RestartMenu;
     public GameObject winTextObject;
@@ -29,13 +31,15 @@ public class PlayerController : MonoBehaviour
     public GameObject unpauseBackgroundObject;
     public ParticleSystem PlayerParticles;
 
+    public System.Random gemGainRnD = new System.Random();
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         PlayerSpawnPoint = gameObject.transform.position;
-        PickUpNum = GameObject.FindGameObjectsWithTag("PickUp").Length;
-        SetCountText();
+        /*PickUpNum = GameObject.FindGameObjectsWithTag("PickUp").Length;*/
+        SetGemText();
         SetHealthText();
     }
 
@@ -71,19 +75,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp"))
         {
             other.gameObject.SetActive(false);
-            score++;
+            gemAmount += gemGainRnD.Next(1, 16);
 
-            if(health < 100)
-            {
-                health += 10;
-
-                if(health > 100)
-                {
-                    health = 100;
-                }
-                SetHealthText();
-            }
-                SetCountText();
+            SetGemText();
         }
 
         if (other.gameObject.CompareTag("KillZone"))
@@ -100,17 +94,14 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    void SetCountText()
+    void SetGemText()
     {
-        countText.text = $"Score: {score}";
-        collectionText.text = $"Gems: {score}/{PickUpNum}";
-        if (score >= PickUpNum)
-        {
-            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
-            winTextObject.SetActive(true);
-            RestartMenu.SetActive(true);
+        gemText.text = $"Gems: {gemAmount}";
+    }
 
-        }
+    void SetMoneyText()
+    {
+        moneyText.text = $"$ {money}";
     }
 
     void SetHealthText()
