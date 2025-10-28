@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         PlayerSpawnPoint = gameObject.transform.position;
-        /*PickUpNum = GameObject.FindGameObjectsWithTag("PickUp").Length;*/
         SetGemText();
         SetHealthText();
     }
@@ -76,8 +75,19 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             gemAmount += gemGainRnD.Next(1, 16);
-
             SetGemText();
+
+            if(health < 100)
+            {
+                health += 10;
+
+                if(health > 100)
+                {
+                    health = 100;
+                }
+            }
+
+            SetHealthText();
         }
 
         if (other.gameObject.CompareTag("KillZone"))

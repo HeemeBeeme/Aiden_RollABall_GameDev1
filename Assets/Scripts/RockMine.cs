@@ -25,7 +25,7 @@ public class RockMine : MonoBehaviour
 
     void Update()
     {
-        mineTimeText.transform.LookAt(Camera.transform, Vector3.forward);
+        mineTimeText.transform.rotation = Quaternion.LookRotation(mineTimeText.transform.position - Camera.transform.position).normalized;
 
 
         if (playerCanMine == false)
