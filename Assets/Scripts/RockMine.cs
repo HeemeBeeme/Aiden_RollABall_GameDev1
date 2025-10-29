@@ -1,4 +1,7 @@
+using System;
+using System.Collections;
 using TMPro;
+using Unity.Mathematics;
 using UnityEditor.Overlays;
 using UnityEngine;
 
@@ -9,19 +12,21 @@ public class RockMine : MonoBehaviour
     public int rockMineTime = 0;
     public int timeToMine = 3;
 
-    public float shakeSpeed = 2f;
-    public float shakeAmount = 2f;
+    public float shakeMagnitude = 0.1f;
+    public float shakeDuration = 100f;
+    public float Duration = 0f;
 
     public TextMeshProUGUI mineTimeText;
     private Camera Camera;
     public ParticleSystem RockParticleSystem;
 
-    Vector3 RockPosition;
+    public Vector3 InitialPosition;
+    public Vector3 ShakePosition;
 
     void Start()
     {
         Camera = FindAnyObjectByType<Camera>();
-        RockPosition = gameObject.transform.position;
+        InitialPosition = transform.localPosition;
     }
 
     void Update()
@@ -41,7 +46,7 @@ public class RockMine : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -50,8 +55,27 @@ public class RockMine : MonoBehaviour
             {
                 playerCanMine = false;
                 RockParticleSystem.Play();
-            /*gameObject.transform.position = new Vector3((Mathf.Sin(Time.time * shakeSpeed) * shakeAmount), 0, 0);*/
                 rockMineTime += 1;
+
+                while(Duration < shakeDuration)
+                {
+
+                    float shakeX = UnityEngine.Random.value;
+                    float shakeY = UnityEngine.Random.value;
+                    ShakePosition = new Vector3(shakeX, 0, shakeY);
+
+                    transform.localPosition = ShakePosition;
+
+                    Duration += Time.deltaTime;
+
+                    if(Duration >= 2)
+                    {
+                        Duration = 0;
+                        break;
+                    }
+                }
+
+                transform.localPosition = InitialPosition;
             }
 
 
@@ -63,7 +87,6 @@ public class RockMine : MonoBehaviour
                 rockMineTime = 0;
             }
 
-            gameObject.transform.position = RockPosition;
         }
     }
 
