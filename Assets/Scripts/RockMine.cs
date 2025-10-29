@@ -8,17 +8,22 @@ using UnityEngine;
 public class RockMine : MonoBehaviour
 {
     private bool playerCanMine = true;
+    private bool shake = false;
+
     private float MineTime = 0;
+    private float shakeMagnitude = 0.1f;
+    private float shakeDuration = 5f;
+
     public int rockMineTime = 0;
     public int timeToMine = 3;
 
-    public float shakeMagnitude = 0.1f;
-    public float shakeDuration = 100f;
-    public float Duration = 0f;
+    float Duration = 0f;
 
     public TextMeshProUGUI mineTimeText;
     private Camera Camera;
     public ParticleSystem RockParticleSystem;
+    public GameObject RockMesh;
+    public GameObject Gem;
 
     public Vector3 InitialPosition;
     public Vector3 ShakePosition;
@@ -26,13 +31,19 @@ public class RockMine : MonoBehaviour
     void Start()
     {
         Camera = FindAnyObjectByType<Camera>();
-        InitialPosition = transform.localPosition;
+        InitialPosition = RockMesh.transform.localPosition;
     }
 
     void Update()
     {
         mineTimeText.transform.rotation = Quaternion.LookRotation(mineTimeText.transform.position - Camera.transform.position).normalized;
 
+        if (shake == true)
+        {
+            Duration += Time.deltaTime;
+            ShakePosition = UnityEngine.Random.insideUnitSphere * shakeMagnitude;
+           RockMesh.transform.localPosition = ShakePosition;
+        }
 
         if (playerCanMine == false)
         {
@@ -57,25 +68,7 @@ public class RockMine : MonoBehaviour
                 RockParticleSystem.Play();
                 rockMineTime += 1;
 
-                while(Duration < shakeDuration)
-                {
-
-                    float shakeX = UnityEngine.Random.value;
-                    float shakeY = UnityEngine.Random.value;
-                    ShakePosition = new Vector3(shakeX, 0, shakeY);
-
-                    transform.localPosition = ShakePosition;
-
-                    Duration += Time.deltaTime;
-
-                    if(Duration >= 2)
-                    {
-                        Duration = 0;
-                        break;
-                    }
-                }
-
-                transform.localPosition = InitialPosition;
+                shake = true;
             }
 
 
@@ -84,17 +77,18 @@ public class RockMine : MonoBehaviour
             if (rockMineTime == timeToMine)
             {
                 gameObject.SetActive(false);
-                rockMineTime = 0;
+                RockMesh.SetActive(false);
+                Gem.SetActive(true);
             }
-
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Rock"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            rockMineTime = 0;
+            shake = false;
+            Duration = 0;
         }
     }
 }
