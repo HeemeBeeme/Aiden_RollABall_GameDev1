@@ -6,28 +6,40 @@ using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
 using Unity.Mathematics;
 using System;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
     private int gemAmount = 0;
+
     private float TimePassed = 0;
     public float speed = 5;
     public float baseSpeed = 5;
+
     public int health = 100;
     private int money = 0;
+
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI gemText;
+
+    public UnityEngine.UI.Slider HealthSlider;
+
     public Vector3 PlayerSpawnPoint;
+
     public GameObject RestartMenu;
+    public GameObject PlayMenu;
     public GameObject winTextObject;
     public GameObject pauseTextObject;
     public GameObject unpauseBackgroundObject;
+
     public ParticleSystem PlayerParticles;
 
     public System.Random gemGainRnD = new System.Random();
@@ -116,6 +128,7 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = $"Health: {health}";
+        HealthSlider.value = health;
     }
 
     private void OnCollisionStay(Collision collision)
@@ -147,16 +160,18 @@ public class PlayerController : MonoBehaviour
     public void PauseGame()
     {
         if(IsPaused == false)
-        {
+        {//pause game
             Time.timeScale = 0;
             unpauseBackgroundObject.SetActive(true);
             pauseTextObject.SetActive(false);
+            PlayMenu.SetActive(false);
             IsPaused = true;
         }
         else if(IsPaused == true)
-        {
+        {//unpause game
             Time.timeScale = 1;
             unpauseBackgroundObject.SetActive(false);
+            PlayMenu.SetActive(true);
             IsPaused = false;
         }
     }
