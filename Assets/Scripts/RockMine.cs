@@ -12,12 +12,9 @@ public class RockMine : MonoBehaviour
 
     private float MineTime = 0;
     private float shakeMagnitude = 0.1f;
-    private float shakeDuration = 5f;
 
     public int rockMineTime = 0;
     public int timeToMine = 3;
-
-    float Duration = 0f;
 
     public TextMeshProUGUI mineTimeText;
     private Camera Camera;
@@ -40,7 +37,6 @@ public class RockMine : MonoBehaviour
 
         if (shake == true)
         {
-            Duration += Time.deltaTime;
             ShakePosition = UnityEngine.Random.insideUnitSphere * shakeMagnitude;
            RockMesh.transform.localPosition = ShakePosition;
         }
@@ -88,7 +84,6 @@ public class RockMine : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             shake = false;
-            Duration = 0;
         }
     }
 }
