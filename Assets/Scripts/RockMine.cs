@@ -6,20 +6,20 @@ using UnityEngine;
 
 public class RockMine : MonoBehaviour
 {
-    private bool playerCanMine = true;
     private bool shake = false;
 
-    private float MineTime = 0;
     private float shakeMagnitude = 0.1f;
 
-    public int rockMineTime = 0;
+    public float rockMineTime = 0;
     public int timeToMine = 3;
+    public float rockMiningSpeed = 1;
 
     public TextMeshProUGUI mineTimeText;
     private Camera Camera;
     public ParticleSystem RockParticleSystem;
     public GameObject RockMesh;
     public GameObject Gem;
+    public PlayerController playerController;
 
     public Vector3 InitialPosition;
     public Vector3 ShakePosition;
@@ -28,10 +28,13 @@ public class RockMine : MonoBehaviour
     {
         Camera = FindAnyObjectByType<Camera>();
         InitialPosition = RockMesh.transform.localPosition;
+        playerController = FindAnyObjectByType<PlayerController>();
     }
 
     void Update()
     {
+        rockMiningSpeed = playerController.RockMiningSpeed;
+
         mineTimeText.transform.rotation = Quaternion.LookRotation(mineTimeText.transform.position - Camera.transform.position).normalized;
 
         if (shake == true)
@@ -39,37 +42,21 @@ public class RockMine : MonoBehaviour
             ShakePosition = UnityEngine.Random.insideUnitSphere * shakeMagnitude;
            RockMesh.transform.localPosition = ShakePosition;
         }
-
-        if (playerCanMine == false)
-        {
-            MineTime += Time.deltaTime;
-
-            if (MineTime >= 1f)
-            {
-                MineTime = 0f;
-                playerCanMine = true;
-            }
-        }
     }
 
     public void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            RockParticleSystem.Play();
+            rockMineTime += (rockMiningSpeed * Time.deltaTime);
+            shake = true;
 
-            if (playerCanMine)
-            {
-                playerCanMine = false;
-                RockParticleSystem.Play();
-                rockMineTime += 1;
+            double rockMineTimeRound = Math.Round(rockMineTime, 2);
 
-                shake = true;
-            }
+            mineTimeText.text = rockMineTimeRound.ToString() + "s / 3s";
 
-
-            mineTimeText.text = rockMineTime.ToString() + "s / 3s";
-
-            if (rockMineTime == timeToMine)
+            if (rockMineTime >= timeToMine)
             {
                 gameObject.SetActive(false);
                 RockMesh.SetActive(false);
