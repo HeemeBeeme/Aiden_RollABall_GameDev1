@@ -17,14 +17,15 @@ public class PlayerController : MonoBehaviour
 
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
-    public int gemAmount = 0;
 
     private float TimePassed = 0;
     public float speed = 5;
     public float baseSpeed = 5;
 
+    public int gemAmount = 0;
     public int maxHealth = 100;
     public int health = 100;
+    public int level = 1;
     public int money = 0;
 
     public int moneyMuliplier = 1;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI gemText;
+    public TextMeshProUGUI levelText;
 
     public UnityEngine.UI.Slider HealthSlider;
 
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         SetHealthText();
         SetGemText();
         SetMoneyText();
+        SetLevelText();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -123,6 +126,11 @@ public class PlayerController : MonoBehaviour
     void SetGemText()
     {
         gemText.text = $"Gems: {gemAmount}";
+    }
+
+    void SetLevelText()
+    {
+        levelText.text = $"Level: {level}";
     }
 
     void SetMoneyText()

@@ -4,10 +4,20 @@ using UnityEngine;
 public class Upgrades : MonoBehaviour
 {
     public PlayerController playerController;
-    public RockMine rockMine;
 
     public int GemMultPrice = 20;
     public int RockMinePrice = 50;
+    public int LevelUpPrice = 25;
+
+    public void LevelUp()
+    {
+        if(playerController.gemAmount >= LevelUpPrice)
+        {
+            playerController.gemAmount -= LevelUpPrice;
+            playerController.level++;
+            LevelUpPrice += LevelUpPrice;
+        }
+    }
     public void GemMultBuy()
     {
         if (playerController.money >= GemMultPrice)

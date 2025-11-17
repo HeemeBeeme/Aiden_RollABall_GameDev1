@@ -9,9 +9,12 @@ using UnityEngine.UI;
 public class UIButtons : MonoBehaviour
 {
     private bool InSettings = false;
+    private bool InSidebar = true;
 
     public GameObject SettingsMenuObj;
     public GameObject MainMenu;
+    public GameObject SideBar;
+    public GameObject SideBarClosedButton;
 
     public void Play()
     {
@@ -27,6 +30,22 @@ public class UIButtons : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Single);
+    }
+
+    public void SideBarActivation()
+    {
+        if(InSidebar)
+        {
+            SideBar.SetActive(false);
+            SideBarClosedButton.SetActive(true);
+            InSidebar = false;
+        }
+        else
+        {
+            SideBar.SetActive(true);
+            SideBarClosedButton.SetActive(false);
+            InSidebar = true;
+        }
     }
 
     public void SettingsMenu()
