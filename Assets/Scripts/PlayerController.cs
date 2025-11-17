@@ -17,14 +17,16 @@ public class PlayerController : MonoBehaviour
 
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
-    private int gemAmount = 0;
+    public int gemAmount = 0;
 
     private float TimePassed = 0;
     public float speed = 5;
     public float baseSpeed = 5;
 
+    public int maxHealth = 100;
     public int health = 100;
-    private int money = 0;
+    public int money = 0;
+    public int moneyMuliplier = 1;
 
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI healthText;
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem PlayerParticles;
 
     public System.Random gemGainRnD = new System.Random();
+    public System.Random SellGemRnD = new System.Random();
 
 
     void Start()
@@ -88,13 +91,13 @@ public class PlayerController : MonoBehaviour
             gemAmount += gemGainRnD.Next(1, 16);
             SetGemText();
 
-            if(health < 100)
+            if(health < maxHealth)
             {
                 health += 10;
 
-                if(health > 100)
+                if(health > maxHealth)
                 {
-                    health = 100;
+                    health = maxHealth;
                 }
             }
 
@@ -129,6 +132,15 @@ public class PlayerController : MonoBehaviour
     {
         healthText.text = $"Health: {health}";
         HealthSlider.value = health;
+    }
+
+    public void SellGems()
+    {
+        money += SellGemRnD.Next(gemAmount, gemAmount * moneyMuliplier);
+        gemAmount = 0;
+
+        SetGemText();
+        SetMoneyText();
     }
 
     private void OnCollisionStay(Collision collision)
