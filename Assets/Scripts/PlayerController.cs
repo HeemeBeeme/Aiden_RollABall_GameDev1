@@ -58,6 +58,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        SetHealthText();
+        SetGemText();
+        SetMoneyText();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -89,7 +92,6 @@ public class PlayerController : MonoBehaviour
         {
             //other.gameObject.SetActive(false);
             gemAmount += gemGainRnD.Next(1, 16);
-            SetGemText();
 
             if(health < maxHealth)
             {
@@ -100,8 +102,6 @@ public class PlayerController : MonoBehaviour
                     health = maxHealth;
                 }
             }
-
-            SetHealthText();
         }
 
         if (other.gameObject.CompareTag("KillZone"))
@@ -138,9 +138,6 @@ public class PlayerController : MonoBehaviour
     {
         money += SellGemRnD.Next(gemAmount, gemAmount * moneyMuliplier);
         gemAmount = 0;
-
-        SetGemText();
-        SetMoneyText();
     }
 
     private void OnCollisionStay(Collision collision)
@@ -152,14 +149,12 @@ public class PlayerController : MonoBehaviour
                 enemyCanDamage = false;
                 health -= 25;
                 PlayerParticles.Play();
-                SetHealthText();
                 speed *= 1.5f;
             }
 
             if (health <= 0)
             {
                 health = 0;
-                SetHealthText();
                 Destroy(gameObject);
                 PlayMenu.SetActive(false);
                 winTextObject.gameObject.SetActive(true);
