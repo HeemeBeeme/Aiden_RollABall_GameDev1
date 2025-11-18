@@ -1150,12 +1150,12 @@ GameObject:
   m_Component:
   - component: {fileID: 168577373}
   m_Layer: 5
-  m_Name: SideBar
+  m_Name: Sidebar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &168577373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $ 999
+  m_text: 'Gems: 999'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -24.481941, y: 0, z: -24.79226, w: 13.5036335}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2682,12 +2682,12 @@ GameObject:
   - component: {fileID: 238630837}
   - component: {fileID: 238630836}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: ExitSidebarButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &238630835
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3265,6 +3265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsPaused: 0
+  CanPause: 1
   speed: 5
   baseSpeed: 5
   gemAmount: 0
@@ -3283,7 +3284,6 @@ MonoBehaviour:
   RestartMenu: {fileID: 618818027}
   PlayMenu: {fileID: 637658233}
   winTextObject: {fileID: 2093832170}
-  pauseTextObject: {fileID: 0}
   unpauseBackgroundObject: {fileID: 1311381331}
   PlayerParticles: {fileID: 1817792796}
 --- !u!114 &288052986
@@ -3867,7 +3867,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 17.948347}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6117,7 +6117,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.5, y: -370}
+  m_AnchoredPosition: {x: 25.5, y: -360}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &871789521
@@ -6167,8 +6167,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6205,7 +6205,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 26.328247, y: 0, z: 34.61235, w: 0}
+  m_margin: {x: 13.431831, y: 3.8405151, z: 41.052567, w: 7.4317665}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7404,7 +7404,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 1
   m_VoxelSize: 0.0625
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0ebaa97ddff5795468ae99005755192d, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &1136036440
 GameObject:
@@ -8117,7 +8117,7 @@ GameObject:
   - component: {fileID: 1240269665}
   - component: {fileID: 1240269664}
   m_Layer: 5
-  m_Name: SideBarBackground
+  m_Name: SidebarBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11497,7 +11497,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 18.585457}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -17508,6 +17508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480a308d64295a64886fc34902ddc646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InSidebar: 0
   SettingsMenuObj: {fileID: 305575315}
   MainMenu: {fileID: 222921430}
   SideBar: {fileID: 168577372}
@@ -19293,7 +19294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27, y: 60}
+  m_AnchoredPosition: {x: 17, y: 60}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088347216
@@ -19343,8 +19344,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 29
+  m_fontSizeBase: 29
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

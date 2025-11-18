@@ -18,7 +18,7 @@ public class Upgrades : MonoBehaviour
     {
         SellMultPriceTxt.text = $"$ {SellMultPrice}";
         RockMineTimePriceTxt.text = $"$ {RockMineTimePrice}";
-        LevelUpPriceTxt.text = $"$ {LevelUpPrice}";
+        LevelUpPriceTxt.text = $"Gems: {LevelUpPrice}";
     }
 
     public void SellMultTextUpdate()
@@ -43,6 +43,7 @@ public class Upgrades : MonoBehaviour
             playerController.gemAmount -= LevelUpPrice;
             playerController.level++;
             playerController.maxHealth += 10;
+            playerController.health = playerController.maxHealth;
             LevelUpPrice += LevelUpPrice;
             LevelUpTextUpdate();
         }

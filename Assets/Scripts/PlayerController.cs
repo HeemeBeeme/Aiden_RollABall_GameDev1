@@ -139,6 +139,7 @@ public class PlayerController : MonoBehaviour
     void SetHealthText()
     {
         healthText.text = $"Health: {health}/{maxHealth}";
+        HealthSlider.maxValue = maxHealth;
         HealthSlider.value = health;
     }
 
