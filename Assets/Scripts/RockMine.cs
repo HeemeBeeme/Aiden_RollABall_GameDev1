@@ -54,7 +54,7 @@ public class RockMine : MonoBehaviour
 
             double rockMineTimeRound = Math.Round(rockMineTime, 2);
 
-            mineTimeText.text = rockMineTimeRound.ToString() + "s / 3s";
+            mineTimeText.text = rockMineTimeRound.ToString() + $"s / {timeToMine}s";
 
             if (rockMineTime >= timeToMine)
             {

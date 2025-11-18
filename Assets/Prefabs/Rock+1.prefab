@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3675785021599064759}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: Rock+1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5536,7 +5536,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 515bc69863e35c042b1caf18a1f00ef8, type: 2}
+  - {fileID: 2100000, guid: 376101162031226469cee1c91d918445, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5850,7 +5850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockMineTime: 0
-  timeToMine: 3
+  timeToMine: 7
   rockMiningSpeed: 1
   mineTimeText: {fileID: 4371136297289847073}
   RockParticleSystem: {fileID: 6702337515063140038}
@@ -11483,7 +11483,7 @@ MonoBehaviour:
   GemLight: {fileID: 8189164307903511861}
   ParticleSystem: {fileID: 4167673362339089438}
   playerController: {fileID: 0}
-  PickUpAmount: 16
+  PickUpAmount: 32
 --- !u!108 &8189164307903511861 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7741876466413569997, guid: b29b586df9feb374bb00e99a52bce403, type: 3}

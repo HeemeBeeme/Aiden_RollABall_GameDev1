@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float baseSpeed = 5;
 
     public int gemAmount = 0;
+    public int gemPickUpAmount = 16;
     public int maxHealth = 100;
     public int health = 100;
     public int level = 1;
@@ -91,22 +92,6 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
-        {
-            //other.gameObject.SetActive(false);
-            gemAmount += gemGainRnD.Next(1, 16);
-
-            if(health < maxHealth)
-            {
-                health += 10;
-
-                if(health > maxHealth)
-                {
-                    health = maxHealth;
-                }
-            }
-        }
-
         if (other.gameObject.CompareTag("KillZone"))
         {
             gameObject.transform.position = PlayerSpawnPoint;

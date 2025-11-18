@@ -728,6 +728,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1898671989}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (5)
@@ -736,6 +740,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1898671989}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.46
@@ -1878,6 +1886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480a308d64295a64886fc34902ddc646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InSidebar: 1
   SettingsMenuObj: {fileID: 803037728}
   MainMenu: {fileID: 2116806063}
   SideBar: {fileID: 0}
@@ -2127,6 +2136,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 621914220}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (3)
@@ -2135,6 +2148,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 621914220}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.92
@@ -3638,6 +3655,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 573774457}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock
@@ -3646,6 +3667,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 573774457}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.483528
@@ -4140,6 +4165,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1054397829}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (1)
@@ -4148,6 +4177,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1054397829}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.98
@@ -5414,6 +5447,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 337789107}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (2)
@@ -5422,6 +5459,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 337789107}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.379999
@@ -5641,6 +5682,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1124855688}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (4)
@@ -5649,6 +5694,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1124855688}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.209999
@@ -5811,6 +5860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 40754914}
     m_Modifications:
+    - target: {fileID: 702585516049674474, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 45512339}
     - target: {fileID: 1764852545007171455, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_Name
       value: Rock (6)
@@ -5819,6 +5872,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 45512339}
+    - target: {fileID: 3229356602001440999, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
+      propertyPath: m_VersionIndex
+      value: 4474
+      objectReference: {fileID: 0}
     - target: {fileID: 3675785021599064759, guid: ead6779a9f046c14fad3cf68f10a2e57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

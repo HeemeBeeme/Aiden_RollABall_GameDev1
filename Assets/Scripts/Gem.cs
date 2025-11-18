@@ -1,15 +1,19 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GemColourChanger : MonoBehaviour
+public class Gem : MonoBehaviour
 {
     public Light GemLight;
     public ParticleSystem ParticleSystem;
+
+    public PlayerController playerController;
+    public int PickUpAmount;
 
     public System.Random ColourPickRnD = new System.Random();
 
     void Start()
     {
+        playerController = FindAnyObjectByType<PlayerController>();
         var MainSystem = ParticleSystem.main;
 
         switch (ColourPickRnD.Next(1, 5))
@@ -41,13 +45,30 @@ public class GemColourChanger : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             ParticleSystem.Play();
+            playerController.gemPickUpAmount = PickUpAmount;
+            playerController.gemAmount += playerController.gemGainRnD.Next(1, playerController.gemPickUpAmount);
+            if (playerController.health < playerController.maxHealth)
+            {
+                playerController.health += 10;
+
+                if (playerController.health > playerController.maxHealth)
+                {
+                    playerController.health = playerController.maxHealth;
+                }
+            }
+
             gameObject.SetActive(false);
+
         }
     }
-
 }
