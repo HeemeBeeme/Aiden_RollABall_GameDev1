@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
+    public bool CanPause = true;
 
     private float TimePassed = 0;
     public float speed = 5;
@@ -43,7 +44,6 @@ public class PlayerController : MonoBehaviour
     public GameObject RestartMenu;
     public GameObject PlayMenu;
     public GameObject winTextObject;
-    public GameObject pauseTextObject;
     public GameObject unpauseBackgroundObject;
 
     public ParticleSystem PlayerParticles;
@@ -175,11 +175,10 @@ public class PlayerController : MonoBehaviour
 
     public void PauseGame()
     {
-        if(IsPaused == false)
+        if(!IsPaused && CanPause)
         {//pause game
             Time.timeScale = 0;
             unpauseBackgroundObject.SetActive(true);
-            pauseTextObject.SetActive(false);
             PlayMenu.SetActive(false);
             IsPaused = true;
         }

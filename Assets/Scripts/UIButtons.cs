@@ -9,12 +9,17 @@ using UnityEngine.UI;
 public class UIButtons : MonoBehaviour
 {
     private bool InSettings = false;
-    private bool InSidebar = true;
+    public bool InSidebar = true;
 
     public GameObject SettingsMenuObj;
     public GameObject MainMenu;
     public GameObject SideBar;
     public GameObject SideBarClosedButton;
+
+    public void TutorialOpen()
+    {
+        SceneManager.LoadSceneAsync("Level0", LoadSceneMode.Single);
+    }
 
     public void Play()
     {
