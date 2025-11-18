@@ -10,12 +10,20 @@ public class Settings : MonoBehaviour
     public Toggle VignetteToggle;
     public Toggle GrainToggle;
 
-    public Volume volume;
+    public bool LoadSettings = true;
+
+    public Volume GlobalVolume;
     private VolumeProfile profile;
 
     private void Start()
     {
-        profile = volume.sharedProfile;
+        profile = GlobalVolume.sharedProfile;
+
+        ChromaticAberration();
+        Vignette();
+        FilmGrain();
+
+        LoadSettings = false;
     }
 
     public void ChromaticAberration()
@@ -25,7 +33,14 @@ public class Settings : MonoBehaviour
             chromaticAbr = profile.Add<ChromaticAberration>(false);
         }
 
-        chromaticAbr.active = ChromaticToggle.isOn;
+        if(!LoadSettings)
+        {
+            chromaticAbr.active = ChromaticToggle.isOn;
+        }
+        else
+        {
+            ChromaticToggle.isOn = chromaticAbr.active;
+        }
     }
 
     public void Vignette()
@@ -35,7 +50,14 @@ public class Settings : MonoBehaviour
             vignette = profile.Add<Vignette>(false);
         }
 
-        vignette.active = VignetteToggle.isOn;
+        if (!LoadSettings)
+        {
+            vignette.active = VignetteToggle.isOn;
+        }
+        else
+        {
+            VignetteToggle.isOn = vignette.active;
+        }
     }
 
     public void FilmGrain()
@@ -45,6 +67,13 @@ public class Settings : MonoBehaviour
             filmGrain = profile.Add<FilmGrain>(false);
         }
 
-        filmGrain.active = GrainToggle.isOn;
+        if (!LoadSettings)
+        {
+            filmGrain.active = GrainToggle.isOn;
+        }
+        else
+        {
+            GrainToggle.isOn = filmGrain.active;
+        }
     }
 }

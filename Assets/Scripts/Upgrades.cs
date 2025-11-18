@@ -42,6 +42,7 @@ public class Upgrades : MonoBehaviour
         {
             playerController.gemAmount -= LevelUpPrice;
             playerController.level++;
+            playerController.maxHealth += 10;
             LevelUpPrice += LevelUpPrice;
             LevelUpTextUpdate();
         }

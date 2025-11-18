@@ -56,8 +56,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         PlayerSpawnPoint = gameObject.transform.position;
-        SetGemText();
-        SetHealthText();
     }
 
     private void Update()
@@ -140,7 +138,7 @@ public class PlayerController : MonoBehaviour
 
     void SetHealthText()
     {
-        healthText.text = $"Health: {health}";
+        healthText.text = $"Health: {health}/{maxHealth}";
         HealthSlider.value = health;
     }
 
