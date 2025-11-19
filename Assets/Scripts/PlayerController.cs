@@ -152,7 +152,6 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
                 PlayMenu.SetActive(false);
                 winTextObject.gameObject.SetActive(true);
-                winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
                 RestartMenu.SetActive(true);
             }
 
