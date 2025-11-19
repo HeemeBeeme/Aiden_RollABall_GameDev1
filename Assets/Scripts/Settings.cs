@@ -8,7 +8,6 @@ public class Settings : MonoBehaviour
 {
     public Toggle ChromaticToggle;
     public Toggle VignetteToggle;
-    public Toggle GrainToggle;
 
     public bool LoadSettings = true;
 
@@ -21,7 +20,6 @@ public class Settings : MonoBehaviour
 
         ChromaticAberration();
         Vignette();
-        FilmGrain();
 
         LoadSettings = false;
     }
@@ -57,23 +55,6 @@ public class Settings : MonoBehaviour
         else
         {
             VignetteToggle.isOn = vignette.active;
-        }
-    }
-
-    public void FilmGrain()
-    {
-        if (!profile.TryGet<FilmGrain>(out var filmGrain))
-        {
-            filmGrain = profile.Add<FilmGrain>(false);
-        }
-
-        if (!LoadSettings)
-        {
-            filmGrain.active = GrainToggle.isOn;
-        }
-        else
-        {
-            GrainToggle.isOn = filmGrain.active;
         }
     }
 }
