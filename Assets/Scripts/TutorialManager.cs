@@ -97,13 +97,13 @@ public class TutorialManager : MonoBehaviour
 
             case 8:
 
-                TutorialText.text = "And I Must Warn You... There Is A Dangerous Creature Around Here Named... The Crazy Cube! Yeah I Know Not Very Scary Blah Blah Blah Dont Care.";
+                TutorialText.text = "And I Must Warn You... There Is A Dangerous Creature Around Here Named... HIM! Why? Yeah I Don't Know And Don't Care.";
 
                 break;
 
             case 9:
 
-                TutorialText.text = "Alright Well Hes Out To Get You... Better Run";
+                TutorialText.text = "Alright Well He's Out To Get You... Better Run";
                 Enemy.SetActive(true);
 
                 break;
