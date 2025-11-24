@@ -14,6 +14,7 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+
     private float movementX;
     private float movementY;
 
@@ -25,8 +26,12 @@ public class PlayerController : MonoBehaviour
     public bool CanPause = true;
 
     private float TimePassed = 0;
-    public float speed = 5;
-    public float baseSpeed = 5;
+
+    private int stationarySpeed = 0;
+    public float moveSpeed = 6;
+    public float baseSpeed = 6;
+    public float hitSpeed = 9;
+    public float AccelAndDecelSpeed = 0.05f;
 
     public int gemAmount = 0;
     public int gemPickUpAmount = 16;
@@ -46,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public UnityEngine.UI.Slider HealthSlider;
 
     public Vector3 PlayerSpawnPoint;
+    private Vector3 movementDirection;
 
     public GameObject RestartMenu;
     public GameObject PlayMenu;
@@ -105,7 +111,7 @@ public class PlayerController : MonoBehaviour
                 vignette.intensity.Override(VignetteStandard);
 
                 TimePassed = 0f;
-                speed = baseSpeed;
+                moveSpeed = baseSpeed;
                 enemyCanDamage = true;
             }
         }
@@ -114,7 +120,18 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        rb.AddForce(movement * speed);
+
+        if (new Vector2(movementX, movementY) == Vector2.zero)
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, stationarySpeed, AccelAndDecelSpeed);
+        }
+        else
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, baseSpeed, AccelAndDecelSpeed);
+        }
+
+        rb.MovePosition(transform.position += ((movement + movementDirection) * moveSpeed) * Time.deltaTime);
+
     }
 
     void OnTriggerEnter(Collider other)
@@ -131,6 +148,18 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
+
+        if(movementVector == Vector2.zero)
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, stationarySpeed, AccelAndDecelSpeed);
+
+            movementDirection = Vector3.Lerp(movementDirection, Vector3.zero, AccelAndDecelSpeed);
+        }
+        else
+        {
+            moveSpeed = Mathf.Lerp(moveSpeed, baseSpeed, AccelAndDecelSpeed);
+            movementDirection = new Vector3(movementX, 0, movementY);
+        }
     }
 
     void SetGemText()
@@ -170,7 +199,7 @@ public class PlayerController : MonoBehaviour
                 enemyCanDamage = false;
                 health -= 25;
                 PlayerParticles.Play();
-                speed *= 1.5f;
+                moveSpeed = hitSpeed;
 
                 cameraController.shake = true;
 
