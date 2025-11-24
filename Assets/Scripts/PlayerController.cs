@@ -1,19 +1,24 @@
+using System;
+using System.Collections;
+using TMPro;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
-using System.Collections;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using Unity.VisualScripting;
-using Unity.Mathematics;
-using System;
-using UnityEngine.UIElements;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+
+    private Volume GlobalVolume;
+    private VolumeProfile profile;
 
     private bool enemyCanDamage = true;
     public bool IsPaused = false;
@@ -47,6 +52,11 @@ public class PlayerController : MonoBehaviour
     public GameObject winTextObject;
     public GameObject unpauseBackgroundObject;
 
+    private Settings settings;
+
+    private float VignetteStandard = 0.2f;
+    private float VignetteDamaged = 0.35f;
+
     public ParticleSystem PlayerParticles;
 
     public System.Random gemGainRnD = new System.Random();
@@ -56,6 +66,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        settings = FindAnyObjectByType<Settings>();
+        GlobalVolume = FindAnyObjectByType<Volume>();
+        profile = GlobalVolume.sharedProfile;
         PlayerSpawnPoint = gameObject.transform.position;
     }
 
@@ -77,6 +90,15 @@ public class PlayerController : MonoBehaviour
 
             if (TimePassed >= 1f)
             {
+                if (!profile.TryGet<Vignette>(out var vignette))
+                {
+                    vignette = profile.Add<Vignette>(false);
+                }
+
+                vignette.active = settings.VignetteToggle.isOn;
+                vignette.color.Override(Color.black);
+                vignette.intensity.Override(VignetteStandard);
+
                 TimePassed = 0f;
                 speed = baseSpeed;
                 enemyCanDamage = true;
@@ -144,10 +166,28 @@ public class PlayerController : MonoBehaviour
                 health -= 25;
                 PlayerParticles.Play();
                 speed *= 1.5f;
+
+                if (!profile.TryGet<Vignette>(out var vignette))
+                {
+                    vignette = profile.Add<Vignette>(false);
+                }
+
+                vignette.active = true;
+                vignette.color.Override(Color.red);
+                vignette.intensity.Override(VignetteDamaged);
             }
 
             if (health <= 0)
             {
+                if (!profile.TryGet<Vignette>(out var vignette))
+                {
+                    vignette = profile.Add<Vignette>(false);
+                }
+
+                vignette.active = settings.VignetteToggle.isOn;
+                vignette.color.Override(Color.black);
+                vignette.intensity.Override(VignetteStandard);
+
                 health = 0;
                 Destroy(gameObject);
                 PlayMenu.SetActive(false);

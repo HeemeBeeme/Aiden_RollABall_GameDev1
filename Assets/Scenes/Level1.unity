@@ -3983,6 +3983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe28abc082c1a394c852632e08a3b68d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GlobalVolume: {fileID: 0}
   IsPaused: 0
   CanPause: 1
   speed: 5
@@ -16332,7 +16333,7 @@ GameObject:
   - component: {fileID: 1747072799}
   m_Layer: 0
   m_Name: Global Volume
-  m_TagString: Untagged
+  m_TagString: GlobalVolume
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
