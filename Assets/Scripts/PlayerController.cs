@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
     private float VignetteStandard = 0.2f;
     private float VignetteDamaged = 0.35f;
 
+    private CameraController cameraController;
+
     public ParticleSystem PlayerParticles;
 
     public System.Random gemGainRnD = new System.Random();
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         settings = FindAnyObjectByType<Settings>();
+        cameraController = FindAnyObjectByType<CameraController>();
         GlobalVolume = FindAnyObjectByType<Volume>();
         profile = GlobalVolume.sharedProfile;
         PlayerSpawnPoint = gameObject.transform.position;
@@ -90,6 +93,8 @@ public class PlayerController : MonoBehaviour
 
             if (TimePassed >= 1f)
             {
+                cameraController.shake = false;
+
                 if (!profile.TryGet<Vignette>(out var vignette))
                 {
                     vignette = profile.Add<Vignette>(false);
@@ -167,6 +172,8 @@ public class PlayerController : MonoBehaviour
                 PlayerParticles.Play();
                 speed *= 1.5f;
 
+                cameraController.shake = true;
+
                 if (!profile.TryGet<Vignette>(out var vignette))
                 {
                     vignette = profile.Add<Vignette>(false);
@@ -179,6 +186,8 @@ public class PlayerController : MonoBehaviour
 
             if (health <= 0)
             {
+                cameraController.shake = false;
+
                 if (!profile.TryGet<Vignette>(out var vignette))
                 {
                     vignette = profile.Add<Vignette>(false);
