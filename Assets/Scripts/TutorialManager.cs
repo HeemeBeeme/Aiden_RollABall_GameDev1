@@ -39,9 +39,9 @@ public class TutorialManager : MonoBehaviour
         {
             TextPlace = 0;
         }
-        if(TextPlace > 11)
+        if(TextPlace > 12)
         {
-            TextPlace = 11;
+            TextPlace = 12;
         }
 
         switch(TextPlace)
