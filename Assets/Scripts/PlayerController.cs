@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
     public System.Random gemGainRnD = new System.Random();
     public System.Random SellGemRnD = new System.Random();
 
+    public AudioClip damagedClip;
+    public AudioSource PlayerSource;
 
     void Start()
     {
@@ -174,6 +176,8 @@ public class PlayerController : MonoBehaviour
             {
                 enemyCanDamage = false;
                 health -= 25;
+                PlayerSource.clip = damagedClip;
+                PlayerSource.Play();
                 PlayerParticles.Play();
                 moveSpeed = hitSpeed;
 
