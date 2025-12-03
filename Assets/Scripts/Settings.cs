@@ -9,6 +9,8 @@ public class Settings : MonoBehaviour
     public Toggle ChromaticToggle;
     public Toggle VignetteToggle;
 
+    private float VignetteStandard = 0.2f;
+
     public bool LoadSettings = true;
 
     public Volume GlobalVolume;
@@ -47,6 +49,9 @@ public class Settings : MonoBehaviour
         {
             vignette = profile.Add<Vignette>(false);
         }
+
+        vignette.color.Override(Color.black);
+        vignette.intensity.Override(VignetteStandard);
 
         if (!LoadSettings)
         {

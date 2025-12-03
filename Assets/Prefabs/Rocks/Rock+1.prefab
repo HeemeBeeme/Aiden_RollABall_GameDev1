@@ -5857,6 +5857,7 @@ MonoBehaviour:
   RockMesh: {fileID: 4466325284643736343}
   Gem: {fileID: 4451520991038652890}
   playerController: {fileID: 0}
+  MiningClip: {fileID: 8300000, guid: bbfee21ec4944be4ebf98c130318c4a4, type: 3}
   InitialPosition: {x: 0, y: 0, z: 0}
   ShakePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6863570316494628688
