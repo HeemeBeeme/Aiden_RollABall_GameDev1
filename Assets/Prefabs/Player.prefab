@@ -5177,9 +5177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPaused: 0
   CanPause: 1
-  moveSpeed: 7
-  baseSpeed: 7
-  hitSpeed: 9
+  moveSpeed: 6
+  baseSpeed: 6
+  hitSpeed: 8
   AccelAndDecelSpeed: 0.05
   gemAmount: 0
   gemPickUpAmount: 16

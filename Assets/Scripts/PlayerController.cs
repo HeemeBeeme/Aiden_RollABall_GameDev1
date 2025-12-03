@@ -27,11 +27,9 @@ public class PlayerController : MonoBehaviour
 
     private float TimePassed = 0;
 
-    private int stationarySpeed = 0;
     public float moveSpeed = 6;
     public float baseSpeed = 6;
     public float hitSpeed = 9;
-    public float AccelAndDecelSpeed = 0.05f;
 
     public int gemAmount = 0;
     public int gemPickUpAmount = 16;
@@ -119,19 +117,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY) + movementDirection;
 
-        if (new Vector2(movementX, movementY) == Vector2.zero)
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, stationarySpeed, AccelAndDecelSpeed);
-        }
-        else
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, baseSpeed, AccelAndDecelSpeed);
-        }
-
-        rb.MovePosition(transform.position += ((movement + movementDirection) * moveSpeed) * Time.deltaTime);
-
+        rb.MovePosition(transform.position += (movement * moveSpeed) * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -148,18 +136,6 @@ public class PlayerController : MonoBehaviour
 
         movementX = movementVector.x;
         movementY = movementVector.y;
-
-        if(movementVector == Vector2.zero)
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, stationarySpeed, AccelAndDecelSpeed);
-
-            movementDirection = Vector3.Lerp(movementDirection, Vector3.zero, AccelAndDecelSpeed);
-        }
-        else
-        {
-            moveSpeed = Mathf.Lerp(moveSpeed, baseSpeed, AccelAndDecelSpeed);
-            movementDirection = new Vector3(movementX, 0, movementY);
-        }
     }
 
     void SetGemText()
