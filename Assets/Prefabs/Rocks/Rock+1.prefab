@@ -5852,6 +5852,7 @@ MonoBehaviour:
   rockMineTime: 0
   timeToMine: 7
   rockMiningSpeed: 1
+  audioTime: 0
   mineTimeText: {fileID: 4371136297289847073}
   RockParticleSystem: {fileID: 6702337515063140038}
   RockMesh: {fileID: 4466325284643736343}
@@ -11484,6 +11485,7 @@ MonoBehaviour:
   GemLight: {fileID: 8189164307903511861}
   ParticleSystem: {fileID: 4167673362339089438}
   playerController: {fileID: 0}
+  PickUpClip: {fileID: 8300000, guid: f5af66d093d25a143b71b4cd542f61b6, type: 3}
   PickUpAmount: 32
 --- !u!108 &8189164307903511861 stripped
 Light:

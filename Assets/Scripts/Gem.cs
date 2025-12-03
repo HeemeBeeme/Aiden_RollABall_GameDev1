@@ -7,6 +7,8 @@ public class Gem : MonoBehaviour
     public ParticleSystem ParticleSystem;
 
     public PlayerController playerController;
+    private AudioSource PlayerSource;
+    public AudioClip PickUpClip;
     public int PickUpAmount;
 
     public System.Random ColourPickRnD = new System.Random();
@@ -14,6 +16,7 @@ public class Gem : MonoBehaviour
     void Start()
     {
         playerController = FindAnyObjectByType<PlayerController>();
+        PlayerSource = playerController.GetComponent<AudioSource>();
         var MainSystem = ParticleSystem.main;
 
         switch (ColourPickRnD.Next(1, 5))
@@ -55,6 +58,10 @@ public class Gem : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ParticleSystem.Play();
+
+            PlayerSource.clip = PickUpClip;
+            PlayerSource.Play();
+
             playerController.gemPickUpAmount = PickUpAmount;
             playerController.gemAmount += playerController.gemGainRnD.Next(1, playerController.gemPickUpAmount);
             if (playerController.health < playerController.maxHealth)
