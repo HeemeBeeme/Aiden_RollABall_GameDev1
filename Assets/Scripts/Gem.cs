@@ -11,6 +11,8 @@ public class Gem : MonoBehaviour
     public AudioClip PickUpClip;
     public int PickUpAmount;
 
+    public bool GemPickedUp = false;
+
     public System.Random ColourPickRnD = new System.Random();
 
     void Start()
@@ -74,6 +76,7 @@ public class Gem : MonoBehaviour
                 }
             }
 
+            GemPickedUp = true;
             gameObject.SetActive(false);
 
         }

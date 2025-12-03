@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class RockMine : MonoBehaviour
 {
-    private bool shake = false;
+    public bool shake = false;
 
     private float shakeMagnitude = 0.1f;
 

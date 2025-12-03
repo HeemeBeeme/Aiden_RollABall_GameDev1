@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3675785021599064759}
+  - component: {fileID: 5564038946497287751}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -36,6 +37,21 @@ Transform:
   - {fileID: 7176860419784065980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5564038946497287751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764852545007171455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e38206df47179e4497273beb8a195eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rockMineScript: {fileID: 8346851854182003504}
+  gemScript: {fileID: 5698264233403387129}
+  rockObject: {fileID: 7758356951331756495}
 --- !u!1 &1957429306683873825
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,6 +5866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af22c529c7daa8d44b87f27554aa499e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shake: 0
   rockMineTime: 0
   timeToMine: 3
   rockMiningSpeed: 1
@@ -11511,6 +11528,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   PickUpClip: {fileID: 8300000, guid: f5af66d093d25a143b71b4cd542f61b6, type: 3}
   PickUpAmount: 16
+  GemPickedUp: 0
 --- !u!108 &8189164307903511861 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 7741876466413569997, guid: b29b586df9feb374bb00e99a52bce403, type: 3}
